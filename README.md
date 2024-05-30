@@ -36,7 +36,7 @@ generated the Protocol Buffer and ConnectRPC files:
 2) Bazel Build  
    bazel build //...
 
-### IMPORTANT: If you want to build interchangeably using 'go build' or 'bazel build', the import paths in the generated files must be consistent.  Essentially, each path in the plugin's 'out' field must be the root of the importpath & overrideimportpath in the go_proto_library blocks in proto/greet/v1/BUILD.bazel. Here is an example from this repository's code showing proper alignment between the configuration files using a path starting at 'gen':
+### IMPORTANT: If you want to build interchangeably using 'go build' or 'bazel build', the import paths in the generated files must be consistent.  Essentially, each path in the plugin's 'out' field must be the root of the importpath & overrideimportpath in the go_proto_library blocks in proto/greet/v1/BUILD.bazel. Here is an example from this repository's code showing proper alignment between the configuration files using a path starting at 'gen'.
 
 # proto/greet/v1/greet1connect/BUILD.bazel (redacted to relevant blocks) 
 ![alt text](assets/connect_go_proto.png)
@@ -54,7 +54,6 @@ generated the Protocol Buffer and ConnectRPC files:
 * grpcurl -plaintext -d '{"service":"greet.v1.GreetService"}' localhost:8080 grpc.health.v1.Health/Check
 * curl -X POST -H "Content-Type: application/json" -d '{"service":"greet.v1.GreetService"}' http://127.0.0.1:8080/grpc.health.v1.Health/Check
 * buf curl --http2-prior-knowledge -d '{"service":"greet.v1.GreetService"}' http://127.0.0.1:8080/grpc.health.v1.Health/Check
-
 
 ## Resources
 * https://connectrpc.com
