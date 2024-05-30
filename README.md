@@ -38,28 +38,11 @@ generated the Protocol Buffer and ConnectRPC files:
 
 ### IMPORTANT: If you want to build interchangeably using 'go build' or 'bazel build', the import paths in the generated files must be consistent.  Essentially, each path in the plugin's 'out' field must be the root of the importpath & overrideimportpath in the go_proto_library blocks in proto/greet/v1/BUILD.bazel. Here is an example from this repository's code showing proper alignment between the configuration files using a path starting at 'gen':
 
-```
-# buf.get.yaml (redacted to relevant fields) 
-plugins:
-- remote: buf.build/protocolbuffers/go 
-  out: gen/
-- remote: buf.build/connectrpc/go 
-  out: gen/
-```
+# proto/greet/v1/greet1connect/BUILD.bazel (redacted to relevant blocks) 
+![alt text](assets/connect_go_proto.png)
 
-```
-# proto/greet/v1/BUILD.bazel (redacted to relevant fields)
-go_proto_library(
-name = "greetv1_connect_go_proto",
-importpath = "github.com/abitofhelp/connect-go-googleapis/gen/greet/v1",
-overrideimportpath = "github.com/abitofhelp/connect-go-googleapis/gen/greet/v1/greetv1connect",
-)
-
-go_proto_library(
-name = "greetv1_go_proto",
-importpath = "github.com/abitofhelp/connect-go-googleapis/__gen__/greet/v1",
-)
-```
+# proto/greet/v1/BUILD.bazel (redacted to relevant blocks)
+![alt text](assets/go_proto.png)
 
 ## GreetService Queries
 * grpcurl -plaintext -d '{"name": "Jane"}' localhost:8080 greet.v1.GreetService/Greet
