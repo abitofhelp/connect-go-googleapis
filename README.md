@@ -38,10 +38,10 @@ generated the Protocol Buffer and ConnectRPC files:
 
 ### IMPORTANT: If you want to build interchangeably using 'go build' or 'bazel build', the import paths in the generated files must be consistent.  Essentially, each path in the plugin's 'out' field must be the root of the importpath & overrideimportpath in the go_proto_library blocks in proto/greet/v1/BUILD.bazel. Here is an example from this repository's code showing proper alignment between the configuration files using a path starting at 'gen'.
 
-# proto/greet/v1/greet1connect/BUILD.bazel (redacted to relevant blocks) 
+#### proto/greet/v1/greet1connect/BUILD.bazel (redacted to relevant blocks) 
 ![alt text](assets/connect_go_proto.png)
 
-# proto/greet/v1/BUILD.bazel (redacted to relevant blocks)
+#### proto/greet/v1/BUILD.bazel (redacted to relevant blocks)
 ![alt text](assets/go_proto.png)
 
 ## GreetService Queries
